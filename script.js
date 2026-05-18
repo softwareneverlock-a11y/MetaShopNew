@@ -44,6 +44,7 @@ const productsGrid = document.querySelector("#productsGrid");
 const tabButtons = document.querySelectorAll(".tab-button");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelectorAll(".nav-links a");
+const revealSections = document.querySelectorAll(".section");
 
 function createOrderUrl(productName) {
   const message = `Добрый день, я хочу заказать ${productName}`;
@@ -64,7 +65,13 @@ function renderNews() {
     .join("");
 }
 
-function renderProducts(category) {
+function renderProducts(category, animate = false) {
+  if (animate) {
+    productsGrid.classList.add("is-switching");
+  }
+
+  window.setTimeout(
+    () => {
   productsGrid.innerHTML = products[category]
     .map(
       (product) => `
@@ -89,6 +96,11 @@ function renderProducts(category) {
       `
     )
     .join("");
+
+      productsGrid.classList.remove("is-switching");
+    },
+    animate ? 180 : 0
+  );
 }
 
 function createImageFallback(productName) {
@@ -102,7 +114,7 @@ tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
     tabButtons.forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
-    renderProducts(button.dataset.category);
+    renderProducts(button.dataset.category, true);
   });
 });
 
@@ -118,5 +130,29 @@ navLinks.forEach((link) => {
   });
 });
 
+function initSectionReveal() {
+  revealSections.forEach((section) => section.classList.add("reveal"));
+
+  if (!("IntersectionObserver" in window)) {
+    revealSections.forEach((section) => section.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.14 }
+  );
+
+  revealSections.forEach((section) => observer.observe(section));
+}
+
 renderNews();
 renderProducts("liquids");
+initSectionReveal();
