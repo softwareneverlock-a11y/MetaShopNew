@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meta Shop - онлайн-вейпшоп с жидкостями, POD-системами и аксессуарами."
+    />
+    <title>Meta Shop - онлайн-вейпшоп</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Главная навигация">
+        <a class="logo" href="#home" aria-label="Meta Shop">
+          <span class="logo-mark">M</span>
+          <span>Meta Shop</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links">
+          <a href="#news">Новости</a>
+          <a href="#shop">Магазин</a>
+          <a href="#links">Ссылки</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="hero-content">
+          <p class="eyebrow">Онлайн-вейпшоп</p>
+          <h1>Meta Shop</h1>
+          <p class="hero-text">
+            Жидкости, POD-системы и аксессуары в сине-чёрном стиле. Выбирайте товар
+            и оформляйте заказ напрямую через Telegram.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#shop">Перейти в магазин</a>
+            <a class="btn btn-secondary" href="https://t.me/+sMvFJcGjOOg2ZTdi" target="_blank" rel="noopener">
+              Telegram канал
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Преимущества магазина">
+          <div>
+            <strong>24/7</strong>
+            <span>приём заказов</span>
+          </div>
+          <div>
+            <strong>3</strong>
+            <span>категории товаров</span>
+          </div>
+          <div>
+            <strong>TG</strong>
+            <span>быстрая связь</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="section-heading">
+          <p class="eyebrow">Meta Shop</p>
+          <h2>Новости</h2>
+          <p>Свежие обновления магазина, новые поступления и важные объявления для покупателей.</p>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+      </section>
+
+      <section class="section shop-section" id="shop">
+        <div class="section-heading">
+          <p class="eyebrow">Каталог</p>
+          <h2>Магазин</h2>
+          <p>Выберите категорию, найдите нужный товар и оформите заказ в Telegram в один клик.</p>
+        </div>
+
+        <div class="category-tabs" role="tablist" aria-label="Категории товаров">
+          <button class="tab-button active" type="button" data-category="liquids">Жидкости</button>
+          <button class="tab-button" type="button" data-category="pods">POD-системы</button>
+          <button class="tab-button" type="button" data-category="accessories">Аксессуары</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+      </section>
+
+      <section class="section links-section" id="links">
+        <div class="section-heading">
+          <p class="eyebrow">Ссылки</p>
+          <h2>Наш Telegram</h2>
+          <p>Подписывайтесь на канал Meta Shop, чтобы видеть свежие товары, новости и обновления.</p>
+        </div>
+        <a class="telegram-card" href="https://t.me/+sMvFJcGjOOg2ZTdi" target="_blank" rel="noopener">
+          <span class="telegram-icon">TG</span>
+          <span>
+            <strong>Перейти в Telegram канал</strong>
+            <small>https://t.me/+sMvFJcGjOOg2ZTdi</small>
+          </span>
+        </a>
+      </section>
+
+      <section class="section contacts-section" id="contacts">
+        <div class="section-heading">
+          <p class="eyebrow">Контакты</p>
+          <h2>Связаться с Meta Shop</h2>
+        </div>
+        <div class="contacts-grid">
+          <article class="contact-item">
+            <span>Заказы</span>
+            <a href="https://t.me/MetaShop4" target="_blank" rel="noopener">@MetaShop4</a>
+          </article>
+          <article class="contact-item">
+            <span>Канал</span>
+            <a href="https://t.me/+sMvFJcGjOOg2ZTdi" target="_blank" rel="noopener">Meta Shop Telegram</a>
+          </article>
+          <article class="contact-item">
+            <span>Формат</span>
+            <strong>Онлайн-заказы</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="logo" href="#home" aria-label="Meta Shop">
+        <span class="logo-mark">M</span>
+        <span>Meta Shop</span>
+      </a>
+      <p>Контакты: <a href="https://t.me/MetaShop4" target="_blank" rel="noopener">@MetaShop4</a></p>
+      <p><a href="https://t.me/+sMvFJcGjOOg2ZTdi" target="_blank" rel="noopener">Telegram канал</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
