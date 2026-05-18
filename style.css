@@ -406,6 +406,26 @@ img {
   margin: 0;
 }
 
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.product-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border: 1px solid rgba(91, 168, 255, 0.24);
+  border-radius: 8px;
+  background: rgba(11, 140, 255, 0.1);
+  color: #b9dcff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0 10px;
+}
+
 .category-tabs {
   display: flex;
   flex-wrap: wrap;

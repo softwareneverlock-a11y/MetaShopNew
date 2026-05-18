@@ -20,22 +20,22 @@ const newsPosts = [
 
 const products = {
   liquids: [
-    { name: "Banana", price: "450 грн", image: "banana.jpg" },
-    { name: "Blueberry", price: "450 грн", image: "blueberry.jpg" },
-    { name: "Cola", price: "450 грн", image: "cola.jpg" },
-    { name: "Cold Mango", price: "450 грн", image: "cold-mango.jpg" },
-    { name: "Pink Lemonade", price: "450 грн", image: "pink-lemonade.jpg" },
-    { name: "Spearmint", price: "450 грн", image: "spearmint.jpg" },
+    { name: "Banana", price: "450 грн", image: "banana.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Blueberry", price: "450 грн", image: "blueberry.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Cola", price: "450 грн", image: "cola.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Cold Mango", price: "450 грн", image: "cold-mango.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Pink Lemonade", price: "450 грн", image: "pink-lemonade.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Spearmint", price: "450 грн", image: "spearmint.jpg", manufacturer: "Lucky", volume: "15 мл" },
   ],
   pods: [
-    { name: "POD-система Meta One", price: "850 грн", image: "pod-meta-one.jpg" },
-    { name: "POD-система Compact Blue", price: "920 грн", image: "pod-compact-blue.jpg" },
-    { name: "POD-система Black Air", price: "990 грн", image: "pod-black-air.jpg" },
+    { name: "POD-система Meta One", price: "850 грн", image: "pod-meta-one.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "POD-система Compact Blue", price: "920 грн", image: "pod-compact-blue.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "POD-система Black Air", price: "990 грн", image: "pod-black-air.jpg", manufacturer: "Lucky", volume: "15 мл" },
   ],
   accessories: [
-    { name: "Картридж 0.8 Ом", price: "160 грн", image: "cartridge-08.jpg" },
-    { name: "Картридж 1.2 Ом", price: "160 грн", image: "cartridge-12.jpg" },
-    { name: "USB-C кабель", price: "120 грн", image: "usb-c-cable.jpg" },
+    { name: "Картридж 0.8 Ом", price: "160 грн", image: "cartridge-08.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "Картридж 1.2 Ом", price: "160 грн", image: "cartridge-12.jpg", manufacturer: "Lucky", volume: "15 мл" },
+    { name: "USB-C кабель", price: "120 грн", image: "usb-c-cable.jpg", manufacturer: "Lucky", volume: "15 мл" },
   ],
 };
 
@@ -46,8 +46,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelectorAll(".nav-links a");
 const revealSections = document.querySelectorAll(".section");
 
-function createOrderUrl(productName) {
-  const message = `Добрый день, я хочу заказать ${productName}`;
+function createOrderUrl(product) {
+  const message = `Добрый день, я хочу заказать ${product.name}. Производитель: ${product.manufacturer}. Объем: ${product.volume}`;
   return `https://t.me/${telegramUser}?text=${encodeURIComponent(message)}`;
 }
 
@@ -86,9 +86,13 @@ function renderProducts(category, animate = false) {
           </div>
           <div class="product-body">
             <h3>${product.name}</h3>
+            <div class="product-meta">
+              <span>Производитель: ${product.manufacturer}</span>
+              <span>Объем: ${product.volume}</span>
+            </div>
             <p>Доступно для заказа через Telegram.</p>
             <div class="price">${product.price}</div>
-            <a class="order-button" href="${createOrderUrl(product.name)}" target="_blank" rel="noopener">
+            <a class="order-button" href="${createOrderUrl(product)}" target="_blank" rel="noopener">
               Заказать
             </a>
           </div>
